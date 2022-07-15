@@ -1,0 +1,187 @@
+/* body css */
+body{
+    background-color: rgb(145, 144, 144);
+    background-image: url("../images/bg.jpg");
+    background
+}
+/* maindiv css which is a outer white box */
+#maindiv {
+    height: auto;
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+/* main heading css */
+#header{
+    color: #4f4d4d;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    padding-top: 16px;
+}
+/* forms css */
+#forms{
+    height: auto;
+    width: 100%;
+}
+
+/* description css */
+#todoText{
+    height: 60px;
+    width: 100%;
+    border-top:1px solid #918e8e;
+    text-align: left;
+    border-radius: 6px;
+}
+/* class for label of all three divs */
+.labelDiv{
+    padding-top: 4px;
+    padding-left: 11px;
+    font-family:'Times New Roman', Times, serif;
+    
+}
+/* class for input of all three input divs */
+.input{
+    width: 70%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding-left: 11px;
+    padding-top: 4px;
+    color: rgb(140, 137, 137);
+}
+
+#div2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #918e8e;
+    border-radius: 6px;
+}
+/* category div css */
+#category{
+    height: 60px;
+    width: 49%;
+    text-align: left;
+    padding-right: 2px;
+    border-right: 1px solid #918e8e;
+    /* border: 1px solid #4f4d4d;; */
+}
+/* category input */
+#categoryInput{
+    width: 90%;
+}
+/* date css */
+#date{
+    height: 60px;
+    width: 50%;
+    text-align: left;
+    /* border: 1px solid #4f4d4d; */
+}
+/* button block */
+#buttonDiv{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #918e8e;
+    border-radius: 6px;
+}
+/* add task button  */
+#addButton{
+    height: 60px;
+    width: 10rem;
+    margin: 40px 3px 30px 3px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #646464;
+}
+#addButton p{
+    margin-top: 16px;
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#addIcon{
+    height: 30px;
+    width: 30px;
+    padding-bottom: 7px;
+    font-size: 39px;
+    color: white;
+}
+/* delete task css */
+#deleteTask{
+    height: 60px;
+    width: 10rem;
+    color: white;
+    margin: 40px 3px 30px 3px;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: #ee351e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#deleteTask p{
+    margin-top: 15px;
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#deleteIcon{
+    height: 25px;
+    width: 25px;
+    margin-right: 4px;
+    font-size: 20px;
+    color: white;
+}
+#unordered-list{
+    list-style: none;
+    padding-left: 0px;
+}
+#outerDiv{
+    height: auto;
+    width: 92%;
+    margin: auto;
+    border-top: 1px solid #918e8e;
+    /* display: flex; */
+    /* justify-content:flex-start; */
+}
+#checkinput{
+    margin: 10px 15px 10px 3px;
+}
+#listItem{
+    height: auto;
+    width: 97%;
+    text-align: initial;
+    display: flex;
+    justify-content: center;
+}
+#innerDiv{
+    height: 55px;
+    width:inherit ;
+    padding-top: 6px;
+}
+#innerDiv-text{
+    margin-bottom: 7px;
+    color: #585454;
+}
+
+#innerDiv-date i {
+    margin-right: 3px;
+    color: #585454;
+}
+#cate-Div{
+    width: 20%;
+    height: 39px;
+    margin: 10;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

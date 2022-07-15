@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <script src="https://kit.fontawesome.com/7fe716acd6.js" crossorigin="anonymous"></script> 
+        <link rel="stylesheet" href="../css/home.css">
+    </head>
+    <body>
+        <!-- main container -->
+        <div id="maindiv">
+
+            <!-- todo header -->
+            <h1 id="header">TODO App</h1>
+
+            <!-- text input form -->
+            <form id="forms" action="/addtask" method="post">
+                <div id="todoText">
+                    <div class="labelDiv" for="description">DESCRIPTION</div>
+                    <input id="description" class="input" name="ToDo" type="text" placeholder="What's your next to do?">
+                </div>
+                <div id="div2">
+
+                    <!-- category section -->
+                    <div id="category">
+                        <div class="labelDiv" for="">CATEGORY</div>
+                        <select id="categoryInput" class="input" name="category">
+                            <option>choose a category</option>
+                            <option>Personal</option>
+                            <option>Work</option>
+                            <option>School</option>
+                            <option>Cleaning</option>
+                            <option>Home Stuff</option>
+                            <option>other</option>
+                        </select>
+                    </div>
+
+                    <!-- date section  -->
+                    <div id="date">
+                        <div class="labelDiv">DUE DATE</div>
+                        <input class="input" name="date" type="date">
+                    </div>
+                </div>
+
+                <!-- button container -->
+                <div id="buttonDiv">
+                    <button id="addButton" type="submit"> 
+                        <div id="addIcon"><i class="fa-duotone fa-plus"></i></div>
+                        <p>ADD TASKS</p>
+                    </button>
+                    <a id="deleteTask" >
+                        <i id="deleteIcon" class="fa-solid fa-trash-can"></i>
+                        <p>DELETE TASKS</p>
+                    </a>
+                </div>
+            </form>
+
+            <!-- todos list -->
+            <ul id="unordered-list">
+                <% for(let i of task_list){ %>
+                    <div id="outerDiv">
+                        <li id="listItem">
+                            <input id="checkinput" type="checkbox" name="<%= i._id %>">
+                            <div id="innerDiv">
+                                <div id="innerDiv-text"><%= i.todo %></div>
+                                <div id="innerDiv-date">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <%= i.date %>
+                                </div>
+                            </div>
+                            <div id="cate-Div" class="categoryDiv"><%= i.category %></div>
+                        </li>
+                    </div>
+                <% } %>
+            </ul>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            var x = document.getElementsByClassName("categoryDiv");
+            var deleteItem=[];
+            for(var j = 0; j < x.length; j++){
+                // x[j].style.backgroundColor = "grey";
+                if(x[j].innerHTML.indexOf("Work") !== -1){
+                    x[j].style.backgroundColor = "#e3bf7e";
+                };
+                if(x[j].innerHTML.indexOf("Personal") !== -1){
+                    x[j].style.backgroundColor = "#eaaaea";
+                };
+                if(x[j].innerHTML.indexOf("School") !== -1){
+                    x[j].style.backgroundColor = "Yellow"
+                };
+                if(x[j].innerHTML.indexOf("other") !== -1){
+                    x[j].style.backgroundColor = "blue"
+                };
+                if(x[j].innerHTML.indexOf("Cleaning") !== -1){
+                    x[j].style.backgroundColor = "skyblue"
+                };
+                if(x[j].innerHTML.indexOf("Home Stuff") !== -1){
+                    x[j].style.backgroundColor = "green"
+                };
+            };
+
+
+            // $("#deleteTask").style.backgroundColor = "orange"
+            $(document).ready(function() {
+                $("#deleteTask").click(function() {
+                    var deleteItem = [];
+                    $("input:checkbox").each(function() {
+                        var $this = $(this);
+
+                        if ($this.is(":checked")) {
+                            deleteItem.push($this.attr("name"));
+                        }
+                    });
+                    console.log(deleteItem);
+                    fetch("/deletetask/?ids="+JSON.stringify(deleteItem)).then(()=>{
+                        location.reload()
+                    })
+                });
+            });
+        </script>
+    </body>
+</html>
